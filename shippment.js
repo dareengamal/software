@@ -1,22 +1,9 @@
-/*import express from 'express';
-
-const router = express.Router();
-
-router.get('/' , ( req , res) => {
-    res.send('THIS WORK');
+import mongoose from 'mongoose';
+const postSchema=mongoose.Schema({
+    shippment_status:String,
+    order_id:Number,
+    address:String,
+    order_status:String
 });
-
-export default router ;*/
-import express from 'express';
-import { getshippment, updateshippment, createshippment ,deleteshippment} from '../controllers/App.js';
-const router=express.Router();
-
-
- //router.get('/', getProducts);
- router.get('/{order_id}',getshippment);
- router.post('/',createshippment);
- router.patch('/',updateshippment);
- router.delete('/',deleteshippment);
-
-
-export default router;
+const shippment= mongoose.model('shippment',postSchema);
+export default shippment;
